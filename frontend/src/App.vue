@@ -1,3 +1,7 @@
+<script setup>
+  import Home from './templates/Home.vue';
+</script>
+
 <template>
-  <h1>Base Program</h1>
+  <Home />
 </template>
