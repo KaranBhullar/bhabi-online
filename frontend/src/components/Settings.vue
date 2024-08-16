@@ -23,7 +23,9 @@
       :class="{ 'modal-open': isShown }">
       <div class="modal-box p-0 size-3/5"  @click.stop="" >
         <p class="ml-3 mt-2 font-medium">Settings</p>
-        <div class="divider m-0" />
+        <div class="divider m-0">
+          
+        </div>
         <OptionContent />
         <div class="float-right modal-action clear-both p-3">
           <button class="btn btn-sm" @click="flip"> Close </button>

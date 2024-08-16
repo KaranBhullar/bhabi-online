@@ -5,8 +5,8 @@
 </script>
 
 <template>
-  <div class="float-left menu  p-0 [&_li>*]:rounded-none bg-base-200">
-    <ul class="  h-full   w-max">
+  <div class="float-left menu h-3/4 p-0 [&_li>*]:rounded-none bg-gradient-to-b from-base-200 to-60%">
+    <ul class="  h-full w-max">
       <li>
         <label>
           Theme
