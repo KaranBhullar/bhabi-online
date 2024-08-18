@@ -7,15 +7,6 @@
 </script>
 
 <template>
-  <!-- <dialog v-if="isShown" id="my_modal_2" class="modal">
-    <div class="modal-box">
-      <h3 class="text-lg font-bold">Hello!</h3>
-      <p class="py-4">Press ESC key or click outside to close</p>
-    </div>
-    <form method="dialog" class="modal-backdrop">
-      <button>close</button>
-    </form>
-  </dialog> -->
   <div class="modal-wrapper" @click="$emit('close', isShown = false)">
     
     <div
@@ -33,23 +24,10 @@
     </div>
   </div>
 </div>
-  <!-- <button class="btn" @click="my_modal_2.showModal()">open modal</button>
-  <dialog id="my_modal_2" 
-    class="modal" 
-    :class="{ 'modal-open': isShown }"
-  >
-    <div class="modal-box">
-      <h3 class="text-lg font-bold">Hello!</h3>
-      <p class="py-4">Press ESC key or click outside to close</p>
-    </div>
-    <form method="dialog" class="modal-backdrop">
-      <button>close</button>
-    </form>
-  </dialog> -->
 
   <button @click="flip" >
         <svg
-          class="hover:rotate-45 transition-all delay-0"
+          class="hover:rotate-45 transition-all delay-0 "
           xmlns="http://www.w3.org/2000/svg"
           width="32" 
           height="32" 
