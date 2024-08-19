@@ -12,7 +12,7 @@
     <div
       class="modal "
       :class="{ 'modal-open': isShown }">
-      <div class="modal-box p-0 size-3/5"  @click.stop="" >
+      <div class="modal-box p-0 size-3/5 flex-grow"  @click.stop="" >
         <p class="ml-3 mt-2 font-medium">Settings</p>
         <div class="divider m-0">
           
