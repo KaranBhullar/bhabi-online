@@ -1,11 +1,35 @@
 <script setup>
   import { ref } from 'vue';
-  import JoinOptions from '../components/JoinGames.vue';
+  import io from 'socket.io-client'
+  import JoinGames from '../components/JoinGames.vue';
   import Settings from '../components/Settings.vue';
   import Customize from '../components/Customize.vue';
-  let toggle = ref(false);
 
+  let socket = io('http://localhost:3000');
+  const toggle = ref(false);
   const flip = () => {toggle.value = !toggle.value}
+  const check = () => {
+    if (socket) {console.log(socket.id); return; }
+    console.log("there is no socket connected")
+  }
+  const working = () => {
+    console.log('pee')
+    socket.emit('working')
+  }
+  const showRooms = () => {
+    socket.emit('show-rooms')
+    socket.emit('show-sockets')
+  }
+  const submitCode = (code) => {
+    socket.emit('join-game', code)
+    console.log('working ' + code)
+  }
+  
+  function addSoc() {
+    // socket.value = io('http://localhost:3000')
+    console.log('added new socket')
+    socket.emit('create-game')
+  }
 </script>
 
 <template>
@@ -22,12 +46,12 @@
     <div class=" w-4/5 float-right">
       <div class="flex h-[calc(100vh-150px)] justify-center items-center">
         <div v-show="toggle">
-          <JoinOptions toggle="toggle" @flip="flip"/>
+          <JoinGames toggle="toggle" @rooms="showRooms" @flip="flip" @submit-code="submitCode"/>
         </div>
         <div v-show="!toggle" class="flex flex-col">
           <button @click="flip" id="Join" class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg">Join Game</button>
           <div class="divider">or</div>
-          <button id="Create" class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg">Create Game</button>
+          <button @click="addSoc" id="Create" class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg">Create Game</button>
         </div>
       </div>
     </div>

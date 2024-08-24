@@ -1,6 +1,7 @@
 <script setup>
+  import { ref } from 'vue';
   defineProps({toggle : Boolean})
-
+  const code = ''
 </script>
 
 <template>
@@ -30,15 +31,14 @@
       </button>
     </div>
     <div class="py-8 flex flex-col">
-      
+ 
       <div class="flex flex-row space-x-3">
-
       <label class="input input-bordered flex items-center gap-2">
-        <input type="text" class="grow" placeholder="Enter Code" />
+        <input v-model="code" type="text" class="grow " placeholder="Enter Code"/>
         <kbd class="kbd kbd-sm">Enter</kbd>
       </label>
 
-      <button class="btn btn-xs sm:btn-sm md:btn-md btn-square btn-outline">
+      <button @click="$emit('submitCode', code)" class="btn btn-xs sm:btn-sm md:btn-md btn-square btn-outline">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="h-6 w-6"
@@ -55,7 +55,7 @@
       </div>
 
       <div class="divider" />
-      <button class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg">Join a Random Game</button>
+      <button @click="$emit('rooms')" class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg">Join a Random Game</button>
 
     </div>
   </div>
