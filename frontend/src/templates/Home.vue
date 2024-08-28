@@ -45,7 +45,7 @@ import Client from '../controllers/client-io';
         <div class=" w-4/5 float-right">
           <div class="flex h-[calc(100vh-150px)] justify-center items-center">
             <div v-show="toggle">
-              <JoinGames toggle="toggle" @rooms="showRooms" @flip="flip" @submit-code="(code) => {socket.emit('join-game', code)}"/>
+              <JoinGames toggle="toggle" @rooms="showRooms" @flip="flip" @submit-code="(code) => {$emit('joinGame', code)}"/>
             </div>
             <div v-show="!toggle" class="flex flex-col">
               <button @click="flip" id="Join" class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg">Join Game</button>
