@@ -1,4 +1,4 @@
-import generate from "../scripts/gen-room-id.js";
+import generate from "../middleware/gen-room-id.js";
 
 function createGame(io, socket, rooms) {
   let roomName;
