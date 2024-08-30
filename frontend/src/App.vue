@@ -16,12 +16,13 @@
   //   console.log('The socket already exists')
   // }
   const createGame = () => {
-    socket.init(io('http://localhost:3000'), "pee")
+    socket.init("pee")
     socket.emit('create-game');
+    console.log(socket.rooms)
   }
-  const joinGame = () => {
-    socket.init(io('http://localhost:3000'), "piss")
-    socket.emit('join-game');
+  const joinGame = (code) => {
+    socket.init("piss")
+    socket.emit('join-game', code);
   }
 </script>
 

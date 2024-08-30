@@ -31,13 +31,8 @@ server.ready().then(() => {
     console.info('Socket connected!', socket.id)
     
     socket.on('working', () => console.log('button has been clicked by ', socket.id));
-    // socket.on('show-rooms', () => {
-    //   console.log(server.io.of('/').adapter.rooms.get('Room Name'));
-    // })
- 
-
-    createGame(server.io, socket, rooms)
     
+    createGame(server.io, socket, rooms)
     joinGame(socket, rooms) 
   });
   
