@@ -8,13 +8,13 @@ const server = fastify();
 const rooms = ['1lbbl'];
 
 server.register(fastifyCors, {
-  origin: "http://localhost:5173",
+  origin: ["http://localhost:5173","http://localhost:5174"],
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
 });
 
 server.register(fastifyIO, {
   cors: {
-    origin: "http://localhost:5173",
+    origin: ["http://localhost:5173","http://localhost:5174"],
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
   }
 });
