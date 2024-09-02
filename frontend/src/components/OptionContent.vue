@@ -1,7 +1,12 @@
 <script setup>
-  import { ref } from 'vue'
+  import { ref, watch } from 'vue'
 
-  const picked = ref('1')
+  const picked = ref('1');
+  const theme = ref(localStorage.getItem('theme') || "default");
+
+  watch(theme, (d1) => {
+    localStorage.setItem('theme', d1)
+  });
 </script>
 
 <template>
@@ -32,33 +37,34 @@
     <div class="form-control">
       <label class="label cursor-pointer gap-4">
         <span class="label-text">Default</span>
-        <input type="radio" name="theme-radios" class="radio theme-controller" value="default" />
+        <input type="radio" name="theme-radios" class="radio radio-primary theme-controller" value="default" v-model="theme"/>
       </label>
     </div>
     <div class="form-control">
       <label class="label cursor-pointer gap-4">
         <span class="label-text">Retro</span>
-        <input type="radio" name="theme-radios" class="radio theme-controller" value="retro" />
+        <input type="radio" name="theme-radios" class="radio radio-primary theme-controller" value="dark" v-model="theme"/>
       </label>
     </div>
     <div class="form-control">
       <label class="label cursor-pointer gap-4">
         <span class="label-text">Cyberpunk</span>
-        <input type="radio" name="theme-radios" class="radio theme-controller" value="cyberpunk" />
+        <input type="radio" name="theme-radios" class="radio radio-primary theme-controller" value="light" v-model="theme"/>
       </label>
     </div>
     <div class="form-control">
       <label class="label cursor-pointer gap-4">
         <span class="label-text">Valentine</span>
-        <input type="radio" name="theme-radios" class="radio theme-controller" value="valentine" />
+        <input type="radio" name="theme-radios" class="radio radio-primary theme-controller" value="mint" v-model="theme"/>
       </label>
     </div>
-    <div class="form-control">
+    <div class="form-control"> 
       <label class="label cursor-pointer gap-4">
         <span class="label-text">Aqua</span>
-        <input type="radio" name="theme-radios" class="radio theme-controller" value="aqua" />
+        <input type="radio" name="theme-radios" class="radio radio-primary theme-controller" value="a5" v-model="theme"/>
       </label>
     </div>
+    <text > {{"--> " + theme}}  </text>
 
   </div>
   <div v-if="picked == 2">

@@ -1,5 +1,5 @@
 <template>
-     <div class="card bg-base-100 w-96 shadow-xl">
+     <div class="card border rounded-lg border-accent bg-base-200 w-96 shadow-xl">
       <div class="flex justify-center">
         <div class="flex flex-col justify-end">
           <button class="float-left my-2 mx-1 btn w-max btn-sm" ><</button>
